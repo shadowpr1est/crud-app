@@ -10,7 +10,7 @@
 
 ### 1. Клонируйте репозиторий
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/shadowpr1est/crud-app.git
 cd crud-app
 ```
 
