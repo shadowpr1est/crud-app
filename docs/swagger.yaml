@@ -1,0 +1,87 @@
+basePath: /
+definitions:
+  main.Task:
+    properties:
+      id:
+        type: integer
+      state:
+        type: string
+      title:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: Simple CRUD API for learning Go.
+  title: Task API
+  version: "1.0"
+paths:
+  /tasks:
+    get:
+      produces:
+      - application/json
+      responses: {}
+      summary: Get all tasks
+      tags:
+      - tasks
+    post:
+      parameters:
+      - description: Task body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/main.Task'
+      produces:
+      - application/json
+      responses: {}
+      summary: Create new task
+      tags:
+      - tasks
+  /tasks/{id}:
+    delete:
+      parameters:
+      - description: Task ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: Delete task
+      tags:
+      - tasks
+    get:
+      parameters:
+      - description: Task ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: Get task by ID
+      tags:
+      - tasks
+    put:
+      parameters:
+      - description: Task ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Updated task
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/main.Task'
+      produces:
+      - application/json
+      responses: {}
+      summary: Update task
+      tags:
+      - tasks
+swagger: "2.0"
