@@ -3,8 +3,6 @@ package main
 import (
 	_ "crud-app/docs"
 	"crud-app/internal/handler"
-	"crud-app/internal/repository"
-	"crud-app/internal/service"
 	"log"
 )
 
@@ -15,13 +13,7 @@ import (
 // @BasePath /
 
 func main() {
-	taskRepo := repository.NewTaskMemoryRepository()
-
-	taskService := service.NewTaskService(taskRepo)
-
-	taskHandler := handler.NewTaskHandler(taskService)
-
-	router := handler.SetupRouter(taskHandler)
+	router := handler.SetupRouter()
 
 	log.Println("Server starting at 'http://localhost:8080'")
 	log.Println("Swagger documentation available at 'http://localhost:8080/swagger/index.html'")
